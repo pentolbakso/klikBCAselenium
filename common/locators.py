@@ -24,4 +24,15 @@ class MainLocators(object):
 
 
 class BalanceLocators(object):
-    TABLE_ROW = (By.XPATH, "")
+    pass
+
+
+class AcctStatementLocators(object):
+    INPUT_START_DATE = (By.ID, "startDt")
+    INPUT_START_MONTH = (By.ID, "startMt")
+    INPUT_START_YEAR = (By.ID, "startYr")
+    INPUT_END_DATE = (By.ID, "endDt")
+    INPUT_END_MONTH = (By.ID, "endMt")
+    INPUT_END_YEAR = (By.ID, "endYr")
+    SUBMIT_BUTTON = (By.NAME, "value(submit1)")
+    DOWNLOAD_BUTTON = (By.NAME, "value(submit2)")

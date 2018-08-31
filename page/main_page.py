@@ -58,3 +58,7 @@ class MainPage(BasePage):
 
         self.__switchToContentFrame()
         return AccountStatementPage(self.driver)
+
+    def clickLogout(self):
+        self.__backToParentMenu()
+        self.getElement(MainLocators.MENU_LOGOUT).click()
