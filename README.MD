@@ -17,7 +17,7 @@
 - [x] Logout
 - [x] Balance Inquiry (informasi saldo)
 - [x] Account Statement (mutasi rekening)
-- [] History
+- [ ] History
 
 #### Disclaimer
 
