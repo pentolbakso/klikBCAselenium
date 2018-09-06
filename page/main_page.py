@@ -3,6 +3,7 @@ from common.locators import MainLocators
 from selenium.common.exceptions import UnexpectedAlertPresentException, NoAlertPresentException
 from page.balance_page import BalancePage
 from page.acct_statement_page import AccountStatementPage
+from page.trans_history_page import TransactionHistoryPage
 
 
 class MainPage(BasePage):
@@ -19,6 +20,7 @@ class MainPage(BasePage):
         # check if wrong username/password popup is open
         try:
             alert = self.driver.switch_to_alert()
+            print("alert popup: {0}".format(alert.text))
             alert.accept()
             return True
         except NoAlertPresentException:
@@ -62,3 +64,10 @@ class MainPage(BasePage):
     def clickLogout(self):
         self.__backToParentMenu()
         self.getElement(MainLocators.MENU_LOGOUT).click()
+
+    def clickMenuTransactionHistory(self):
+        self.__backToParentMenu()
+        self.getElement(MainLocators.MENU_TRANSACTION_HISTORY).click()
+
+        self.__switchToContentFrame()
+        return TransactionHistoryPage(self.driver)

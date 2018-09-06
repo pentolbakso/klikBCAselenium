@@ -34,9 +34,10 @@ class AccountStatementPage(BasePage):
         trs = table.find_elements_by_tag_name("tr")
         for tr in trs[1:]:  # skip first row
             tds = tr.find_elements_by_tag_name("td")
+            desc = tds[1].text.replace("\n", " ")
             result.append({
                 'date': tds[0].text,
-                'description': tds[1].text,
+                'description': desc,
                 'cab': tds[2].text,
                 'amount': tds[3].text,
                 'type': tds[4].text,

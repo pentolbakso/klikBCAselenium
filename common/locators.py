@@ -21,6 +21,8 @@ class MainLocators(object):
     MENU_LOGOUT = (
         By.CSS_SELECTOR, "a[href*='value(actions)=logout']")
     MENU_BACK_TO_HOME = (By.CSS_SELECTOR, "a[href='menu_bar.jsp']")
+    MENU_TRANSACTION_HISTORY = (
+        By.CSS_SELECTOR, "a[onclick*='value(actions)=history']")
 
 
 class BalanceLocators(object):
@@ -36,3 +38,14 @@ class AcctStatementLocators(object):
     INPUT_END_YEAR = (By.ID, "endYr")
     SUBMIT_BUTTON = (By.NAME, "value(submit1)")
     DOWNLOAD_BUTTON = (By.NAME, "value(submit2)")
+
+
+class TransactionHistoryLocators(object):
+    INPUT_SELECT_PERIOD = (By.ID, "periode")
+    INPUT_START_DATE = (By.ID, "startDt")
+    INPUT_START_MONTH = (By.ID, "startMt")
+    INPUT_START_YEAR = (By.ID, "startYr")
+    INPUT_END_DATE = (By.ID, "endDt")
+    INPUT_END_MONTH = (By.ID, "endMt")
+    INPUT_END_YEAR = (By.ID, "endYr")
+    SUBMIT_BUTTON = (By.NAME, "value(submit)")

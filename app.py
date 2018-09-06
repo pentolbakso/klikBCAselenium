@@ -18,6 +18,7 @@ if main_page.verifyPage() == False:
     exit(1)
 print("Login success")
 
+# get balance
 balance_page = main_page.clickMenuBalanceInquiry()
 balances = balance_page.getBalance()
 
@@ -25,6 +26,7 @@ print("\nBalance Inquiry result:")
 for balance in balances:
     print("{account:15s} {type:10s} {currency:5s} {amount:s}".format(**balance))
 
+# get account statements
 acct_stmt_page = main_page.clickMenuAccountStatement()
 statements = acct_stmt_page.getStatements()
 
@@ -36,8 +38,19 @@ for stat in statements:
     print("{0:6s} {1:16,.2f} {2}".format(
         stat['date'],
         amount,
-        stat['description'].replace("\n", " ")))
+        stat['description']))
 
+# get transaction history
+history_page = main_page.clickMenuTransactionHistory()
+history = history_page.getHistory()
+
+print("\nTransaction history:")
+for h in history:
+    print("{0:22s} {1:36s} {2:30s} {3:24s} {4}".format(
+        h['date'], h['type'], h['description'], h['amount'], h['status']))
+
+
+# logout and close chrome
 main_page.clickLogout()
 
 print("\nJob finished.")
